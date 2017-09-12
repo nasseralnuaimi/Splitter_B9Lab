@@ -1,0 +1,127 @@
+{
+  "contract_name": "Splitter",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "carol",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "bob",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "split",
+      "outputs": [
+        {
+          "name": "sucess",
+          "type": "bool"
+        }
+      ],
+      "payable": true,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "alice",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "b",
+          "type": "address"
+        },
+        {
+          "name": "c",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "bob",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "carol",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "LogSplit",
+      "type": "event"
+    }
+  ],
+  "unlinked_binary": "0x6060604052341561000f57600080fd5b6040516040806102c883398101604052808051919060200180519150505b60028054600160a060020a03338116600160a060020a0319928316179092556000805485841690831617905560018054928416929091169190911790555b50505b61024b8061007d6000396000f300606060405263ffffffff60e060020a6000350416638b930f158114610045578063c09cec7714610074578063f7654176146100a3578063fb47e3a2146100bf575b600080fd5b341561005057600080fd5b6100586100ee565b604051600160a060020a03909116815260200160405180910390f35b341561007f57600080fd5b6100586100fd565b604051600160a060020a03909116815260200160405180910390f35b6100ab61010c565b604051901515815260200160405180910390f35b34156100ca57600080fd5b610058610210565b604051600160a060020a03909116815260200160405180910390f35b600154600160a060020a031681565b600054600160a060020a031681565b60003481901161011b57600080fd5b60025433600160a060020a0390811691161461013657600080fd5b600054600160a060020a03166108fc6002345b049081150290604051600060405180830381858888f19350505050151561016f57600080fd5b600154600160a060020a03166108fc6002345b0434039081150290604051600060405180830381858888f1935050505015156101aa57600080fd5b6000546001547fccdce1ba8a318337c8272dcad903b86cf313f00b37bbb051b59b2f35a81c7c6a91600160a060020a03908116911634604051600160a060020a039384168152919092166020820152604080820192909252606001905180910390a15b90565b600254600160a060020a0316815600a165627a7a723058205280c22eba5df6ba88fb968a8c61aef70e321d1736b143b14f1cbff46f12e1130029",
+  "networks": {
+    "1505202618280": {
+      "events": {
+        "0xccdce1ba8a318337c8272dcad903b86cf313f00b37bbb051b59b2f35a81c7c6a": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "bob",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "carol",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogSplit",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x9e44f599756f9da0c713c34d8585ee28d731f898",
+      "updated_at": 1505204287680
+    }
+  },
+  "schema_version": "0.0.5",
+  "updated_at": 1505204287680
+}
