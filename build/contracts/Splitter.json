@@ -2,34 +2,17 @@
   "contract_name": "Splitter",
   "abi": [
     {
-      "constant": true,
-      "inputs": [],
-      "name": "carol",
-      "outputs": [
-        {
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "payable": false,
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [],
-      "name": "bob",
-      "outputs": [
-        {
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "payable": false,
-      "type": "function"
-    },
-    {
       "constant": false,
-      "inputs": [],
+      "inputs": [
+        {
+          "name": "b",
+          "type": "address"
+        },
+        {
+          "name": "c",
+          "type": "address"
+        }
+      ],
       "name": "split",
       "outputs": [
         {
@@ -41,9 +24,53 @@
       "type": "function"
     },
     {
+      "constant": false,
+      "inputs": [],
+      "name": "withdraw",
+      "outputs": [
+        {
+          "name": "sucess",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "kill",
+      "outputs": [
+        {
+          "name": "sucess",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "accounts",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
       "constant": true,
       "inputs": [],
-      "name": "alice",
+      "name": "owner",
       "outputs": [
         {
           "name": "",
@@ -54,16 +81,7 @@
       "type": "function"
     },
     {
-      "inputs": [
-        {
-          "name": "b",
-          "type": "address"
-        },
-        {
-          "name": "c",
-          "type": "address"
-        }
-      ],
+      "inputs": [],
       "payable": false,
       "type": "constructor"
     },
@@ -88,9 +106,38 @@
       ],
       "name": "LogSplit",
       "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "reciever",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "LogWithdraw",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "sender",
+          "type": "address"
+        }
+      ],
+      "name": "LogKilled",
+      "type": "event"
     }
   ],
-  "unlinked_binary": "0x6060604052341561000f57600080fd5b6040516040806102c883398101604052808051919060200180519150505b60028054600160a060020a03338116600160a060020a0319928316179092556000805485841690831617905560018054928416929091169190911790555b50505b61024b8061007d6000396000f300606060405263ffffffff60e060020a6000350416638b930f158114610045578063c09cec7714610074578063f7654176146100a3578063fb47e3a2146100bf575b600080fd5b341561005057600080fd5b6100586100ee565b604051600160a060020a03909116815260200160405180910390f35b341561007f57600080fd5b6100586100fd565b604051600160a060020a03909116815260200160405180910390f35b6100ab61010c565b604051901515815260200160405180910390f35b34156100ca57600080fd5b610058610210565b604051600160a060020a03909116815260200160405180910390f35b600154600160a060020a031681565b600054600160a060020a031681565b60003481901161011b57600080fd5b60025433600160a060020a0390811691161461013657600080fd5b600054600160a060020a03166108fc6002345b049081150290604051600060405180830381858888f19350505050151561016f57600080fd5b600154600160a060020a03166108fc6002345b0434039081150290604051600060405180830381858888f1935050505015156101aa57600080fd5b6000546001547fccdce1ba8a318337c8272dcad903b86cf313f00b37bbb051b59b2f35a81c7c6a91600160a060020a03908116911634604051600160a060020a039384168152919092166020820152604080820192909252606001905180910390a15b90565b600254600160a060020a0316815600a165627a7a723058205280c22eba5df6ba88fb968a8c61aef70e321d1736b143b14f1cbff46f12e1130029",
+  "unlinked_binary": "0x6060604052341561000f57600080fd5b5b60008054600160a060020a03191633600160a060020a03161790555b5b61034d8061003c6000396000f300606060405263ffffffff60e060020a6000350416630f2c932981146100505780633ccfd60b1461007e57806341c0e1b5146100a55780635e5c06e2146100cc5780638da5cb5b146100fd575b600080fd5b61006a600160a060020a036004358116906024351661012c565b604051901515815260200160405180910390f35b341561008957600080fd5b61006a610218565b604051901515815260200160405180910390f35b34156100b057600080fd5b61006a6102d5565b604051901515815260200160405180910390f35b34156100d757600080fd5b6100eb600160a060020a0360043516610300565b60405190815260200160405180910390f35b341561010857600080fd5b610110610312565b604051600160a060020a03909116815260200160405180910390f35b60003481901161013b57600080fd5b600160a060020a038316151561015057600080fd5b600160a060020a038216151561016557600080fd5b6002345b600160a060020a038516600090815260016020526040902080549290910490910190556002345b600160a060020a03841660009081526001602052604090208054929091043490810390920190557fccdce1ba8a318337c8272dcad903b86cf313f00b37bbb051b59b2f35a81c7c6a90849084906002905b04604051600160a060020a039384168152919092166020820152604080820192909252606001905180910390a15060015b92915050565b600160a060020a033316600090815260016020526040812054819081901161023f57600080fd5b50600160a060020a033316600081815260016020526040808220805492905590919082156108fc0290839051600060405180830381858888f19350505050151561028857600080fd5b7f4ce7033d118120e254016dccf195288400b28fc8936425acd5f17ce2df3ab7083382604051600160a060020a03909216825260208201526040908101905180910390a1600191505b5090565b6000805433600160a060020a039081169116146102f157600080fd5b33600160a060020a0316ff5b90565b60016020526000908152604090205481565b600054600160a060020a0316815600a165627a7a72305820e647aa49789459345ffc9b80b228cc0d60e5d2bc67bf4fe32c03075b75e1ee670029",
   "networks": {
     "1505202618280": {
       "events": {
@@ -120,8 +167,95 @@
       "links": {},
       "address": "0x9e44f599756f9da0c713c34d8585ee28d731f898",
       "updated_at": 1505204287680
+    },
+    "1505372217199": {
+      "events": {
+        "0xccdce1ba8a318337c8272dcad903b86cf313f00b37bbb051b59b2f35a81c7c6a": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "bob",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "carol",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogSplit",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x5ba3b65497b677070e4dadf2910d2638872f62e9",
+      "updated_at": 1505372290581
+    },
+    "1505379935423": {
+      "events": {
+        "0xccdce1ba8a318337c8272dcad903b86cf313f00b37bbb051b59b2f35a81c7c6a": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "bob",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "carol",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogSplit",
+          "type": "event"
+        },
+        "0x4ce7033d118120e254016dccf195288400b28fc8936425acd5f17ce2df3ab708": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "reciever",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogWithdraw",
+          "type": "event"
+        },
+        "0xdd1d1672156846fdc9d6e65d5701535f177a41834051f5f7328be7f4252bcb31": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "sender",
+              "type": "address"
+            }
+          ],
+          "name": "LogKilled",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x13b592d1efa6b35900940ed8dec15bb76f816dee",
+      "updated_at": 1505379946233
     }
   },
   "schema_version": "0.0.5",
-  "updated_at": 1505204287680
+  "updated_at": 1505379946233
 }
